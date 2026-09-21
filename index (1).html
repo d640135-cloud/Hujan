@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Something I Want To Tell You 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    color: white;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.18), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(255,80,170,.25), transparent 35%),
+        linear-gradient(135deg, #160b18, #6d164b, #e83d91);
+}
+
+/* BACKGROUND GLOW */
+
+.glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: #ff4fa3;
+    filter: blur(120px);
+    opacity: .35;
+}
+
+.glow.one {
+    top: -150px;
+    left: -100px;
+}
+
+.glow.two {
+    right: -150px;
+    bottom: -120px;
+}
+
+/* RAIN */
+
+#rain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.drop {
+    position: absolute;
+    top: -30px;
+    width: 1.5px;
+    height: 35px;
+    background: linear-gradient(
+        transparent,
+        rgba(255,255,255,.75)
+    );
+    animation: rain linear infinite;
+}
+
+@keyframes rain {
+    to {
+        transform: translateY(110vh);
+    }
+}
+
+/* MAIN */
+
+.container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* CARD */
+
+.card {
+    width: min(92%, 520px);
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 42px 32px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.09);
+    border: 1px solid rgba(255,255,255,.2);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.15);
+
+    text-align: center;
+
+    animation: appear 1.2s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* HEART */
+
+.heart {
+    font-size: 58px;
+    margin-bottom: 12px;
+
+    animation:
+        heartbeat 1.5s infinite,
+        float 3s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+@keyframes float {
+    50% {
+        margin-top: -8px;
+    }
+}
+
+/* TEXT */
+
+.small {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: .7;
+}
+
+h1 {
+    font-size: clamp(28px, 7vw, 42px);
+    margin: 8px 0;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ffb8df,
+        #fff
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    font-size: 13px;
+    opacity: .7;
+    margin-bottom: 25px;
+}
+
+.message {
+    text-align: left;
+    line-height: 1.8;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.message b {
+    color: #ffb4dc;
+    font-weight: 600;
+}
+
+/* DIVIDER */
+
+.divider {
+    width: 70px;
+    height: 2px;
+    margin: 25px auto;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ff91c9,
+        transparent
+    );
+}
+
+/* BUTTON */
+
+.buttons {
+    margin-top: 30px;
+
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+
+    padding: 13px 22px;
+
+    border-radius: 50px;
+
+    font-family: inherit;
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.yes {
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #ff4f9a,
+        #ff83be
+    );
+
+    box-shadow:
+        0 8px 25px rgba(255,79,154,.35);
+}
+
+.maybe {
+    color: white;
+
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.03);
+}
+
+button:active {
+    transform: scale(.96);
+}
+
+/* FOOTER */
+
+.footer {
+    margin-top: 25px;
+    font-size: 11px;
+    opacity: .45;
+}
+
+/* POPUP */
+
+.popup {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,.55);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 20;
+
+    padding: 20px;
+}
+
+.popup.active {
+    display: flex;
+}
+
+.popup-box {
+    width: min(90%, 400px);
+
+    padding: 35px 25px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,140,195,.3),
+            rgba(255,255,255,.08)
+        );
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    backdrop-filter: blur(25px);
+
+    text-align: center;
+
+    animation: popup .4s ease;
+}
+
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popup-box h2 {
+    margin-bottom: 12px;
+}
+
+.popup-box p {
+    font-size: 13px;
+    line-height: 1.7;
+    opacity: .85;
+}
+
+.discord {
+    display: inline-block;
+
+    margin-top: 22px;
+
+    padding: 13px 25px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    color: white;
+
+    background: #5865F2;
+
+    font-weight: 600;
+
+    box-shadow: 0 8px 25px rgba(88,101,242,.3);
+}
+
+.close {
+    display: block;
+    margin: 15px auto 0;
+
+    background: transparent;
+    color: white;
+
+    opacity: .6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+<div id="rain"></div>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="heart">💗</div>
+
+        <div class="small">
+            Something I Want To Tell You
+        </div>
+
+        <h1>For You Hujan.</h1>
+
+        <div class="subtitle">
+            Dibaca pelan-pelan ya...
+        </div>
+
+        <div class="message">
+
+            Jujur aku sebenarnya agak bingung mau ngomong ini
+            dari mana. Kita juga baru kenal di kota dan belum
+            terlalu lama ngobrol bahkan gaperna cuma di kota aja itupun kadang
+
+            <br><br>
+
+            Tapi entah kenapa, sejak awal aku mulai tertarik
+            sama kamu.
+
+            <br><br>
+
+            Apalagi waktu pertama kali aku denger kamu nangis
+            OOC... jujur aku malah mikir,
+            <b>“kok lucu banget sih 😭”</b>
+
+            <br><br>
+
+            Bukan karena aku seneng kamu lagi nangis ya,
+            tapi entah kenapa suara dan cara kamu waktu itu
+            menurutku lucu.
+
+            <br><br>
+
+            Terus semakin lama, aku mulai sadar
+            kalau kamu ternyata tipe aku banget.
+
+            <br><br>
+
+            Kamu keliatan <b>soft, penyayang, dan lucu.</b>
+            Ada sesuatu dari kamu yang bikin aku nyaman
+            dan pengin kenal kamu lebih jauh.
+
+            <br><br>
+
+            Aku tahu kita masih baru kenal, jadi mungkin
+            ini terdengar tiba-tiba, dan mungkin bakal bikin kamu ilfil 
+
+            <br><br>
+
+            Aku juga nggak berharap kamu harus langsung
+            punya perasaan yang sama.
+
+            <br><br>
+
+            Aku cuma mau jujur...
+
+            <br><br>
+
+            <b>Aku suka sama kamu. 💗</b>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <p>
+            Kalau kamu sudah selesai baca...
+            pilih jawabanmu di bawah.
+        </p>
+
+        <div class="buttons">
+
+            <button class="yes" onclick="yesAnswer()">
+                💗 Aku juga
+            </button>
+
+            <button class="maybe" onclick="maybeAnswer()">
+                🌸 Aku pikir-pikir dulu
+            </button>
+
+        </div>
+
+        <div class="footer">
+            Made with a little courage & a lot of feelings 🌧️
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+    <div class="popup-box">
+
+        <h2 id="popupTitle">
+            💗 Thank You
+        </h2>
+
+        <p id="popupText">
+            </p>
+
+        <!-- GANTI USER_ID DISCORD DI BAWAH -->
+
+        <a
+            id="discordButton"
+            class="discord"
+            href="https://discord.com/users/1025621918608543754"
+            target="_blank"
+        >
+            💬 Jawab lewat Discord
+        </a>
+
+        <button
+            class="close"
+            onclick="closePopup()"
+        >
+            Tutup
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   HUJAN
+========================= */
+
+const rain = document.getElementById("rain");
+
+for (let i = 0; i < 120; i++) {
+
+    const drop = document.createElement("div");
+
+    drop.className = "drop";
+
+    drop.style.left =
+        Math.random() * 100 + "%";
+
+    drop.style.animationDuration =
+        (0.5 + Math.random() * 1.2) + "s";
+
+    drop.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    drop.style.opacity =
+        0.2 + Math.random() * .7;
+
+    rain.appendChild(drop);
+}
+
+
+/* =========================
+   JAWABAN
+========================= */
+
+function yesAnswer() {
+
+    document.getElementById("popupTitle").innerHTML =
+        "💗 Serius?";
+
+    document.getElementById("popupText").innerHTML =
+        "Kalau jawabannya iya, aku bakal seneng banget. " +
+        "Sekarang tinggal bilang langsung lewat Discord. " +
+        "Aku tunggu jawabannya di sana. 🌧️💗";
+
+    document.getElementById("popup").classList.add("active");
+}
+
+
+function maybeAnswer() {
+
+    document.getElementById("popupTitle").innerHTML =
+        "🌸 Nggak apa-apa";
+
+    document.getElementById("popupText").innerHTML =
+        "Nggak perlu buru-buru. Pikirin baik-baik aja. " +
+        "Kalau sudah siap, kamu bisa jawab aku lewat Discord. 💗";
+
+    document.getElementById("popup").classList.add("active");
+}
+
+
+function closePopup() {
+
+    document.getElementById("popup")
+        .classList.remove("active");
+
+}
+
+</script>
+
+</body>
+</html>
